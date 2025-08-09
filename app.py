@@ -2,24 +2,25 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 import os
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
 app = Flask(__name__)
 # Allow all origins while testing on Replit; tighten later if needed
 CORS(app)
 
 # ---- Data files (yours are in the project root on Replit now) ----
-AR_FILE  = "quran_ar.json"
-EN_FILE  = "quran_en.json"
-UR_FILE  = "quran_ur.json"
-BN_FILE  = "quran_bn.json"
-FR_FILE  = "quran_fr.json"
-ES_FILE  = "quran_es.json"
-ZH_FILE  = "quran_zh.json"
-RU_FILE  = "quran_ru.json"
-ID_FILE  = "quran_id.json"
-NO_FILE  = "quran_sv.json"   # your “no” language uses the sv file
-TR_FILE  = "quran_tr.json"
-TRQ_FILE = "quran_trq.json"
+AR_FILE  = os.path.join(DATA_DIR, "quran_ar.json")
+EN_FILE  = os.path.join(DATA_DIR, "quran_en.json")
+UR_FILE  = os.path.join(DATA_DIR, "quran_ur.json")
+BN_FILE  = os.path.join(DATA_DIR, "quran_bn.json")
+FR_FILE  = os.path.join(DATA_DIR, "quran_fr.json")
+ES_FILE  = os.path.join(DATA_DIR, "quran_es.json")
+ZH_FILE  = os.path.join(DATA_DIR, "quran_zh.json")
+RU_FILE  = os.path.join(DATA_DIR, "quran_ru.json")
+ID_FILE  = os.path.join(DATA_DIR, "quran_id.json")
+NO_FILE  = os.path.join(DATA_DIR, "quran_sv.json")   # same as before
+TR_FILE  = os.path.join(DATA_DIR, "quran_tr.json")
+TRQ_FILE = os.path.join(DATA_DIR, "quran_trq.json")
 
 # ---- Load all languages once at startup ----
 with open(AR_FILE, "r", encoding="utf-8") as f: arabic_data = json.load(f)
