@@ -5,6 +5,7 @@ import os
 
 app = Flask(__name__)
 CORS(app)
+app.config['JSON_AS_ASCII'] = False
 
 # Define data file paths (adjust these paths if necessary for your environment)
 DATA_DIR = "data"
